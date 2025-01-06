@@ -26,20 +26,8 @@ return new class extends Migration
             $table->timestamp('registration_date');
         });
 
-        // Users
-        Schema::create('users', function (Blueprint $table) {
-            $table->bigIncrements('user_id');
-            $table->string('username');
-            $table->string('first_name');
-            $table->string('last_name');
-            $table->string('email')->unique();
-            $table->string('password');
-            $table->string('phone_number')->unique();
-            $table->timestamp('registration_date');
-            $table->timestamp('email_verified_at')->nullable();
-            $table->rememberToken();
-            $table->timestamps();
-        });
+      
+       
 
         // Addresses
         Schema::create('addresses', function (Blueprint $table) {
@@ -94,13 +82,13 @@ return new class extends Migration
         // Orders
         Schema::create('orders', function (Blueprint $table) {
             $table->bigIncrements('order_id');
-            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('id');
             $table->timestamp('order_date');
             $table->decimal('total_price', 8, 2);
             $table->string('status');
             $table->string('delivery_address');
             $table->string('delivery_slot');
-            $table->foreign('user_id')->references('user_id')->on('users');
+            $table->foreign('id')->references('id')->on('users');
         });
 
         // OrderItems
@@ -142,24 +130,24 @@ return new class extends Migration
         // ProductReviews
         Schema::create('product_reviews', function (Blueprint $table) {
             $table->bigIncrements('review_id');
-            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('id');
             $table->unsignedBigInteger('product_id');
             $table->integer('rating');
             $table->text('review_text');
             $table->timestamp('review_date');
-            $table->foreign('user_id')->references('user_id')->on('users');
+            $table->foreign('id')->references('id')->on('users');
             $table->foreign('product_id')->references('product_id')->on('products');
         });
 
         // DeliveryReviews
         Schema::create('delivery_reviews', function (Blueprint $table) {
             $table->bigIncrements('review_id');
-            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('id');
             $table->unsignedBigInteger('delivery_id');
             $table->integer('rating');
             $table->text('review_text');
             $table->timestamp('review_date');
-            $table->foreign('user_id')->references('user_id')->on('users');
+            $table->foreign('id')->references('id')->on('users');
             $table->foreign('delivery_id')->references('delivery_id')->on('deliveries');
         });
 
@@ -189,23 +177,23 @@ return new class extends Migration
         // UserAddresses
         Schema::create('user_addresses', function (Blueprint $table) {
             $table->bigIncrements('user_address_id');
-            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('id');
             $table->unsignedBigInteger('address_id');
             $table->boolean('is_default');
-            $table->foreign('user_id')->references('user_id')->on('users');
+            $table->foreign('id')->references('id')->on('users');
             $table->foreign('address_id')->references('address_id')->on('addresses');
         });
 
         // PaymentMethods
         Schema::create('payment_methods', function (Blueprint $table) {
             $table->bigIncrements('payment_method_id');
-            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('id');
             $table->string('payment_type');
             $table->string('card_number');
             $table->string('expiration_date');
             $table->string('cvv');
             $table->boolean('default_payment');
-            $table->foreign('user_id')->references('user_id')->on('users');
+            $table->foreign('id')->references('id')->on('users');
         });
 
         // ProducerPayments
@@ -243,10 +231,10 @@ return new class extends Migration
         // UserPromotions
         Schema::create('user_promotions', function (Blueprint $table) {
             $table->bigIncrements('user_promotion_id');
-            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('id');
             $table->unsignedBigInteger('promotion_id');
             $table->unsignedBigInteger('applied_to_order_id')->nullable();
-            $table->foreign('user_id')->references('user_id')->on('users');
+            $table->foreign('id')->references('id')->on('users');
             $table->foreign('promotion_id')->references('promotion_id')->on('producer_promotions');
             $table->foreign('applied_to_order_id')->references('order_id')->on('orders')->nullable();
         });
@@ -264,12 +252,12 @@ return new class extends Migration
         // SupportTickets
         Schema::create('support_tickets', function (Blueprint $table) {
             $table->bigIncrements('ticket_id');
-            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('id');
             $table->text('issue_description');
             $table->string('status');
             $table->timestamp('created_date');
             $table->timestamp('resolved_date')->nullable();
-            $table->foreign('user_id')->references('user_id')->on('users');
+            $table->foreign('id')->references('id')->on('users');
         });
 
         // AnalyticsData
