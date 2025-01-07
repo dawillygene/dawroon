@@ -26,9 +26,6 @@ return new class extends Migration
             $table->timestamp('registration_date');
         });
 
-      
-       
-
         // Addresses
         Schema::create('addresses', function (Blueprint $table) {
             $table->bigIncrements('address_id');
