@@ -105,7 +105,7 @@
 
 
                 <x-cards.product-card productImage="1-2ca96552.png" heading="Banana" price="$14.99" discount="20.99"
-                    rating="2.5">
+                    rating="2.8">
 
                 </x-cards.product-card>
 
@@ -170,5 +170,5 @@
         </x-table.table>
     </x-table.table-container>
 
-    
+     
 </x-main-layout>
