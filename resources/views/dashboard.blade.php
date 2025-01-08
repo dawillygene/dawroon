@@ -120,55 +120,49 @@
         <x-table.table-header title="Recent Order" :options="['Today', 'Yesterday', 'Last 7 Days', 'Last 30 Days', 'This Month', 'Last Month']" />
 
         <x-table.table>
-            <x-slot name="header">
-                <tr>
-                    <x-table.table-cell class="text-xs font-medium text-default-600 uppercase">Order
-                        Number</x-table.table-cell>
-                    <x-table.table-cell class="text-xs font-medium text-default-600 uppercase">Product
-                        Name</x-table.table-cell>
-                    <x-table.table-cell class="text-xs font-medium text-default-600 uppercase">Order
-                        Date</x-table.table-cell>
-                    <x-table.table-cell
-                        class="text-xs font-medium text-default-600 uppercase">Price</x-table.table-cell>
-                    <x-table.table-cell
-                        class="text-center text-xs font-medium text-default-600 uppercase">Action</x-table.table-cell>
-                </tr>
-            </x-slot>
+          
+          <x-slot name="header">
+            <tr>
+                <x-table.table-cell type="header">Order Number</x-table.table-cell>
+                <x-table.table-cell type="header">Product Name</x-table.table-cell>
+                <x-table.table-cell type="header">Order Date</x-table.table-cell>
+                <x-table.table-cell type="header">Price</x-table.table-cell>
+                <x-table.table-cell type="header" class="text-center">Action</x-table.table-cell>
+            </tr>
+        </x-slot>
 
             <x-slot name="body">
                 <x-table.table-row>
-                    <x-table.table-cell class="text-sm font-medium text-default-800">#CT0023</x-table.table-cell>
-                    <x-table.table-cell class="text-sm font-medium text-default-800">Nuts And
-                        Berries</x-table.table-cell>
-                    <x-table.table-cell class="text-sm text-default-800">28 Mar 2023</x-table.table-cell>
-                    <x-table.table-cell class="text-sm text-default-800">$12.23</x-table.table-cell>
-                    <x-table.table-cell class="text-center text-sm font-medium">
+                    <x-table.table-cell>#CT0023</x-table.table-cell>
+                    <x-table.table-cell>Nuts And Berries</x-table.table-cell>
+                    <x-table.table-cell>28 Mar 2023</x-table.table-cell>
+                    <x-table.table-cell>$12.23</x-table.table-cell>
+                    <x-table.table-cell class="text-center">
                         <x-table.status-badge color="bg-amber-500/20 text-amber-500">Pending</x-status-badge>
                     </x-table.table-cell>
                 </x-table.table-row>
                 <x-table.table-row>
-                    <x-table.table-cell class="text-sm font-medium text-default-800">#CT0023</x-table.table-cell>
-                    <x-table.table-cell class="text-sm font-medium text-default-800">Nuts And
-                        Berries</x-table.table-cell>
-                    <x-table.table-cell class="text-sm text-default-800">28 Mar 2023</x-table.table-cell>
-                    <x-table.table-cell class="text-sm text-default-800">$12.23</x-table.table-cell>
-                    <x-table.table-cell class="text-center text-sm font-medium">
+                    <x-table.table-cell>#CT0023</x-table.table-cell>
+                    <x-table.table-cell>Nuts And Berries</x-table.table-cell>
+                    <x-table.table-cell>28 Mar 2023</x-table.table-cell>
+                    <x-table.table-cell>$12.23</x-table.table-cell>
+                    <x-table.table-cell class="text-center">
                         <x-table.status-badge color="bg-primary/10 text-primary-500">success</x-status-badge>
                     </x-table.table-cell>
                 </x-table.table-row>
                 <x-table.table-row>
-                    <x-table.table-cell class="text-sm font-medium text-default-800">#CT0023</x-table.table-cell>
-                    <x-table.table-cell class="text-sm font-medium text-default-800">Nuts And
-                        Berries</x-table.table-cell>
-                    <x-table.table-cell class="text-sm text-default-800">28 Mar 2023</x-table.table-cell>
-                    <x-table.table-cell class="text-sm text-default-800">$12.23</x-table.table-cell>
-                    <x-table.table-cell class="text-center text-sm font-medium">
+                    <x-table.table-cell>#CT0023</x-table.table-cell>
+                    <x-table.table-cell>Nuts And Berries</x-table.table-cell>
+                    <x-table.table-cell>28 Mar 2023</x-table.table-cell>
+                    <x-table.table-cell>$12.23</x-table.table-cell>
+                    <x-table.table-cell class="text-center">
                         <x-table.status-badge color="bg-red-500/10 text-red-500">deleted</x-status-badge>
                     </x-table.table-cell>
                 </x-table.table-row>
             </x-slot>
+
         </x-table.table>
     </x-table.table-container>
 
-     
+
 </x-main-layout>
