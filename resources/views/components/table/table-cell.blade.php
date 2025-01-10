@@ -7,6 +7,7 @@
 
 @php
     $defaultClasses = [
+        'small' => 'text-sm text-default-500',
         'body' => 'text-sm font-medium text-default-800',
         'header' => 'text-xs font-medium text-default-600 uppercase',
     ];
