@@ -17,6 +17,7 @@ class OrderItem extends Model
         'quantity',
         'price_at_time_of_order',
     ];
+    public $timestamps = false;
 
     public function order()
     {

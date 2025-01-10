@@ -16,4 +16,6 @@ class DeliveryVehicle extends Model
         'license_plate',
         'status',
     ];
+
+    public $timestamps = false;
 }

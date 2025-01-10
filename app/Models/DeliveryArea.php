@@ -16,4 +16,7 @@ class DeliveryArea extends Model
         'coverage_area',
         'delivery_fee',
     ];
+
+    public $timestamps = false;
+
 }

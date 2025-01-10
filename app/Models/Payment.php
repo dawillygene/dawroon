@@ -19,6 +19,7 @@ class Payment extends Model
         'payment_date',
     ];
 
+    public $timestamps = false;
     public function order()
     {
         return $this->belongsTo(Order::class, 'order_id', 'order_id');

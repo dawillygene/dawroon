@@ -19,6 +19,8 @@ class Producer extends Model
         'phone_number',
         'registration_date',
     ];
+
+    public $timestamps = false;
     protected $hidden = [
         'password',
     ];
@@ -28,4 +30,5 @@ class Producer extends Model
         'registration_date' => 'datetime',
     ];
 
+   
 }

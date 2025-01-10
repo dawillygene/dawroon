@@ -5,12 +5,10 @@
             <x-cards.small-card title="order" quantity="14.8k" rate="50%" color="red" icon="ti-shopping-bag" />
         </x-cards.panel>
         <x-cards.panel>
-            <x-cards.small-card title="Total product" quantity="14.8k" rate="50%" color="purple"
-                icon="ti-shopping-bag" />
+            <x-cards.small-card title="Total product" quantity="14.8k" rate="50%" color="purple" icon="ti-shopping-bag" />
         </x-cards.panel>
         <x-cards.panel>
-            <x-cards.small-card title="Total customer" quantity="14.8k" rate="50%" color="green"
-                icon="ti-shopping-bag" />
+            <x-cards.small-card title="Total customer" quantity="14.8k" rate="50%" color="green" icon="ti-shopping-bag" />
         </x-cards.panel>
         <x-cards.panel>
             <x-cards.small-card title="Reviews" quantity="14.8k" rate="50%" color="blue" icon="ti-shopping-bag" />
@@ -144,9 +142,7 @@
 
     <x-table.table-container>
         <x-table.table-header title="Recent Order" :options="['Today', 'Yesterday', 'Last 7 Days', 'Last 30 Days', 'This Month', 'Last Month']" />
-
         <x-table.table>
-
             <x-slot name="header">
                 <tr>
                     <x-table.table-cell type="header">Order Number</x-table.table-cell>
@@ -156,7 +152,6 @@
                     <x-table.table-cell type="header" class="text-center">Action</x-table.table-cell>
                 </tr>
             </x-slot>
-
             <x-slot name="body">
                 <x-table.table-row>
                     <x-table.table-cell>#CT0023</x-table.table-cell>
@@ -186,7 +181,6 @@
                     </x-table.table-cell>
                 </x-table.table-row>
             </x-slot>
-
         </x-table.table>
     </x-table.table-container>
 <<<<<<< Updated upstream

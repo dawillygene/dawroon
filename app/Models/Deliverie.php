@@ -11,7 +11,9 @@ class Deliverie extends Model
     /** @use HasFactory<\Database\Factories\DeliveriesFactory> */
     use HasFactory;
     protected $table = 'deliveries';
-    public $incrementing = false;
+    protected $primaryKey = "delivery_id";
+
+    // public $incrementing = false;
     protected $fillable = [
         'order_id',
         'delivery_person_id',
@@ -20,6 +22,9 @@ class Deliverie extends Model
         'actual_delivery_time',
         'status',
     ];
+
+
+    public $timestamps = false;
 
     public function order()
     {

@@ -26,10 +26,10 @@ class PaymentFactory extends Factory
         return [
             'order_id' => Order::Factory(),
             'payment_method'=> $this->faker->randomElement(['credit_card', 'paypal', 'bank_transfer', 'cash_on_delivery', 'stripe', 'apple_pay', 'google_pay']),
-            'transactsion_id'=> $this->faker->unique()->uuid(),
-            'amount'=> $this->faker->randomFloat(2,100,5000000),
+            'transaction_id'=> $this->faker->unique()->uuid(),
+            'amount' => $this->faker->randomFloat(2, 1, 10000), 
             'payment_date'=> $this->faker->dateTimeBetween('-4 year','now'),
-            'status'=> $this->faker->randomElement(['pending', 'completed', 'failed']),
+            // 'status'=> $this->faker->randomElement(['pending', 'completed', 'failed']),
             
         ];
     }

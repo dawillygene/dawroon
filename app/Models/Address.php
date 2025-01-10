@@ -19,4 +19,7 @@ class Address extends Model
         'zip_code',
         'country',
     ];
+
+    public $timestamps = false;
+
 }

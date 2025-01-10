@@ -13,7 +13,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        User::factory(10)->create();
+
 
         User::factory()->create([
             'name' => 'Test User',
@@ -21,32 +21,32 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $this->call([
-            AnalyticsDataSeeder::class,
-            SupportTicketSeeder::class,
-            NotificationSeeder::class,
-            ProducerPromotionSeeder::class,
-            UserPromotionSeeder::class,
-            FeeSeeder::class,
-            ProducerPaymentSeeder::class,
-            PaymentMethodSeeder::class,
-            UserAddressSeeder::class,
-            ProducerAddressSeeder::class,
-            InventorySeeder::class,
-            DeliveryReviewSeeder::class,
+            CategorySeeder::class, // No dependencies
+            ProducerSeeder::class, // Depends on categories
+            AddressSeeder::class, // No dependencies
+            DeliveryAreaSeeder::class, // No dependencies
+            DeliveryPersonSeeder::class, // No dependencies
+            DeliveryVehicleSeeder::class, // No dependencies
+            ProductSeeder::class, // Depends on producers and categories
+            OrderSeeder::class, // Depends on users and addresses
+            OrderItemSeeder::class, // Depends on orders and products
+            DeliverieSeeder::class, // Depends on orders, delivery_persons, and delivery_vehicles
+            PaymentSeeder::class, // Depends on orders
+            ProducerAddressSeeder::class, // Depends on producers
+            UserAddressSeeder::class, // Depends on users and addresses
+            PaymentMethodSeeder::class, // Depends on users
+            ProducerPaymentSeeder::class, // Depends on producers
+            FeeSeeder::class, // Depends on producers and orders
+            ProducerPromotionSeeder::class, // Depends on producers
+            UserPromotionSeeder::class, // Depends on users and producer_promotions
+            NotificationSeeder::class, // Depends on users
+            SupportTicketSeeder::class, // Depends on users
+            AnalyticsDataSeeder::class, // Depends on users
+            InventorySeeder::class, // Depends on products
+            DeliveryReviewSeeder::class, // Depends on deliveries and users
+            ProductReviewSeeder::class, // Depends on products and users
         ]);
 
-        $this->call([PaymentSeeder::class,]);
-        $this->call([OrderSeeder::class, ]);
-        $this->call([DeliverieSeeder::class, ]);
-        $this->call([OrderItemSeeder::class,]);
-        $this->call([ProductSeeder::class,]);
-        $this->call([DeliveryVehicleSeeder::class,]);
-        $this->call([DeliveryPersonSeeder::class,]);
-        $this->call([DeliveryAreaSeeder::class,]);
-        $this->call([AddressSeeder::class,]);
-        $this->call([ProducerSeeder::class,]);
-        $this->call([CategorySeeder::class,]);
-
-
+        
     }
 }

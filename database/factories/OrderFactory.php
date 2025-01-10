@@ -23,6 +23,9 @@ class OrderFactory extends Factory
              'order_date'=> $this->faker->dateTimeBetween("-1 year","now"),
              'total_price'=> $this->faker->randomFloat(2,100,10000),
              'delivery_address' => $this->faker->streetAddress . ', ' . $this->faker->city . ', ' . $this->faker->state . ' ' . $this->faker->postcode, 
-             'delivery_slot' => $this->faker->time('H:i') . ' - ' . date('H:i', strtotime($this->faker->time('H:i')) + 7200)];
+             'delivery_slot' => $this->faker->time('H:i') . ' - ' . date('H:i', strtotime($this->faker->time('H:i')) + 7200),
+             'status' => $this->faker->randomElement(['pending', 'processing', 'completed', 'cancelled']),
+            
+            ];
     }
 }

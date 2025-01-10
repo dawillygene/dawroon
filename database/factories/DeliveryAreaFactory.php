@@ -32,7 +32,7 @@ class DeliveryAreaFactory extends Factory
                     ],
                 ],
             ]), 
-            'delivery_fee' => $this->faker->randomFloat(2, 500, 2000), 
+            'delivery_fee' => $this->faker->randomFloat(2, 0, 1000), 
         ];
     }
 }

@@ -17,4 +17,6 @@ class DeliveryPerson extends Model
         'email',
         'status',
     ];
+
+    public $timestamps = false;
 }

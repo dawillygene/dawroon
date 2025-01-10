@@ -21,6 +21,7 @@ class Product extends Model
         'stock_quantity',
     ];
 
+    public $timestamps = false;
       public function producer()
       {
           return $this->belongsTo(Producer::class, 'producer_id', 'producer_id');

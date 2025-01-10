@@ -29,7 +29,7 @@ class DeliveryReview extends Model
 
  public function delivery()
  {
-     return $this->belongsTo(Delivery::class, 'delivery_id');
+     return $this->belongsTo(Deliverie::class, 'delivery_id');
  }
 
 }
