@@ -120,15 +120,29 @@
 
 
     
-
-
     <x-cards.card-main-heading />
+    <x-cards.grid-layout type="large">
+        @foreach ($topSellingProducts as $topSellingProduct)
+        <x-cards.panel style="relative">
+
+
+            <x-cards.product-card productImage="1-2ca96552.png" heading="{{ $topSellingProduct['name']}}" price="{{ $topSellingProduct['discount_price'] }}" discount="{{ $topSellingProduct['price'] }}"
+                rating="{{ $topSellingProduct['average_rating'] }}">
+
+            </x-cards.product-card>
+
+
+        </x-cards.panel>
+        @endforeach
+    </x-cards.grid-layout>
+
+    {{-- <x-cards.card-main-heading />
     <x-cards.grid-layout type="large">
         @for ($i = 0; $i < 6; $i++)
             <x-cards.panel style="relative">
 
 
-                <x-cards.product-card productImage="1-2ca96552.png" heading="Banana" price="$14.99" discount="20.99"
+                <x-cards.product-card productImage="1-2ca96552.png" heading="{{ $topSellingProducts-name }}" price="$14.99" discount="20.99"
                     rating="2.8">
 
                 </x-cards.product-card>
@@ -136,7 +150,7 @@
 
             </x-cards.panel>
         @endfor
-    </x-cards.grid-layout>
+    </x-cards.grid-layout> --}}
 
 
 
@@ -183,9 +197,4 @@
             </x-slot>
         </x-table.table>
     </x-table.table-container>
-<<<<<<< Updated upstream
-=======
-
-
->>>>>>> Stashed changes
 </x-main-layout>

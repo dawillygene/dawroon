@@ -32,4 +32,19 @@ class Product extends Model
       {
           return $this->belongsTo(Category::class, 'category_id', 'category_id');
       }
+
+      public function orderItems()
+      {
+          return $this->hasMany(OrderItem::class, 'product_id', 'product_id');
+      }
+
+      public function promotions()
+    {
+        return $this->hasMany(ProducerPromotion::class, 'product_id', 'product_id');
+    }
+
+    public function reviews()
+    {
+        return $this->hasMany(ProductReview::class, 'product_id', 'product_id');
+    }
 }
