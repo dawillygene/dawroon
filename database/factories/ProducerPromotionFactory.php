@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Product;
 use Illuminate\Support\Carbon;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -18,7 +19,8 @@ class ProducerPromotionFactory extends Factory
     public function definition(): array
     {
         return [
-         'name' => $this->faker->sentence(3),
+            'product_id'=> Product::factory(),
+            'name' => $this->faker->sentence(3),
             'description' => $this->faker->paragraph,
             'start_date' => Carbon::now()->subDays(rand(0, 30)), 
             'end_date' => Carbon::now()->addDays(rand(1, 30)), 

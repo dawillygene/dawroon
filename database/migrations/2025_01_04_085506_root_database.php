@@ -216,7 +216,9 @@ return new class extends Migration
 
         // ProducerPromotions
         Schema::create('producer_promotions', function (Blueprint $table) {
-            $table->bigIncrements('promotion_id');
+            $table->bigIncrements('promotion_id'); // This will be the first column
+            $table->unsignedBigInteger('product_id'); // No need for ->after()
+            $table->foreign('product_id')->references('product_id')->on('products');
             $table->string('name');
             $table->text('description');
             $table->date('start_date');
