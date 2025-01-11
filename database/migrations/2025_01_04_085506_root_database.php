@@ -283,8 +283,6 @@ return new class extends Migration
         Schema::dropIfExists('inventory');
         Schema::dropIfExists('delivery_reviews');
         Schema::dropIfExists('product_reviews');
-        
-
         Schema::dropIfExists('payments');
         Schema::dropIfExists('deliveries');
         Schema::dropIfExists('order_items');

@@ -1,5 +1,10 @@
 <?php
 
+<<<<<<< Updated upstream
+=======
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\ProfileController;
+>>>>>>> Stashed changes
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\DashboardController;
@@ -20,9 +25,19 @@ Route::middleware(['auth', 'verified'])->group(function () {
 //     return view('test');
 // });
 
+<<<<<<< Updated upstream
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
 // })->middleware(['auth', 'verified'])->name('dashboard');
+=======
+Route::middleware(['auth', 'verified'])->group(function () {
+
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+});
+
+
+>>>>>>> Stashed changes
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

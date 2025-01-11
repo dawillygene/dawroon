@@ -2,37 +2,26 @@
 
 namespace App\Http\Controllers\Admin;
 
-
-use App\Services\ProductService;
-use Illuminate\Routing\Controller;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use App\Services\statistics\UserStatisticsService;
 use App\Services\statistics\OrderStatisticsService;
 use App\Services\statistics\ProductStatisticsService;
 
-class DashboardController extends Controller
-{
-    protected $productService;
+class DashboardController extends Controller {
     protected $orderStatisticsService;
     protected $productStatisticsService;
     protected $userStatisticsService;
 
-    public function __construct(ProductService $productService,OrderStatisticsService $orderStatisticsService,ProductStatisticsService $productStatisticsService,UserStatisticsService $userStatisticsService)
-    {
-        $this->productService = $productService;
+    public function __construct(OrderStatisticsService $orderStatisticsService,ProductStatisticsService $productStatisticsService,UserStatisticsService $userStatisticsService) {
         $this->orderStatisticsService = $orderStatisticsService;
         $this->productStatisticsService = $productStatisticsService;
         $this->userStatisticsService = $userStatisticsService;
+
     }
+    
 
-
-
-
-
-
-
-
-    public function topSellingProducts()
-    {
+    public function index() {
         $statistics = [
             'totalRevenue' => $this->orderStatisticsService->getTotalRevenue(),
             'averageOrderValue' => $this->orderStatisticsService->getAverageOrderValue(),
@@ -56,14 +45,10 @@ class DashboardController extends Controller
             'averageUsersPerMonth' => $this->userStatisticsService->getAverageUsersPerMonth(),
             'topActiveUsers' => $this->userStatisticsService->getTopActiveUsers(5),
         ];
-
-        $topSellingProducts = $this->productService->topSaleProduct();
-
-
-        
-        // dd($topSellingProducts);
-       // return view('dashboard', ['topSellingProducts' => $topSellingProducts]);
-        return view('admin.dashboard', compact('statistics','topSellingProducts'));
-        //  return response()->json($topSellingProducts);
+        return view('admin.dashboard', compact('statistics'));
     }
+   
+
 }
+
+   
