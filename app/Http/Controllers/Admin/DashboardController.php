@@ -24,15 +24,10 @@ class DashboardController extends Controller
         $this->userStatisticsService = $userStatisticsService;
     }
 
-
-
-
-
-
-
-
     public function topSellingProducts()
     {
+      
+      
         $statistics = [
             'totalRevenue' => $this->orderStatisticsService->getTotalRevenue(),
             'averageOrderValue' => $this->orderStatisticsService->getAverageOrderValue(),
@@ -58,12 +53,7 @@ class DashboardController extends Controller
         ];
 
         $topSellingProducts = $this->productService->topSaleProduct();
-
-
-        
-        // dd($topSellingProducts);
-       // return view('dashboard', ['topSellingProducts' => $topSellingProducts]);
         return view('admin.dashboard', compact('statistics','topSellingProducts'));
-        //  return response()->json($topSellingProducts);
+   
     }
 }

@@ -21,7 +21,7 @@ class OrderStatisticsService {
         return Order::count();
     }
 
-    // Number of orders in a specific status (e.g., 'completed', 'pending')
+ 
     public function getOrdersByStatus($status) {
         return Order::where('status', $status)->count();
     }
@@ -32,7 +32,7 @@ class OrderStatisticsService {
                     ->sum('total_price');
     }
 
-    // Number of orders for a specific time period (e.g., last 30 days)
+
     public function getOrdersForPeriod($days = 30) {
         return Order::where('order_date', '>=', Carbon::now()->subDays($days))
                     ->count();
