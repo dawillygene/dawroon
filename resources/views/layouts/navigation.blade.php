@@ -1,6 +1,6 @@
 <div id="application-sidebar" class="hs-overlay fixed inset-y-0 start-0 z-60 hidden w-64 -translate-x-full transform overflow-y-auto border-e border-default-200 bg-white transition-all duration-300 hs-overlay-open:translate-x-0 dark:bg-default-50 lg:bottom-0 lg:end-auto lg:z-30 lg:block lg:translate-x-0 rtl:translate-x-full rtl:hs-overlay-open:translate-x-0 rtl:lg:translate-x-0 print:hidden">
     <div class="sticky top-0 flex h-18 items-center justify-start px-6">
-      <a href="admin-dashboard.html">
+      <a href="{{ route('dashboard') }}">
         <img src="assets/logo-dark-1caee452.png" alt="logo" class="flex h-10 dark:hidden" />
         <img src="assets/logo-50f51c55.png" alt="logo" class="hidden h-10 dark:flex" />
       </a>
@@ -9,7 +9,7 @@
     <div class="hs-accordion-group h-[calc(100%-72px)] p-4" data-simplebar>
       <ul class="admin-menu flex w-full flex-col gap-1.5">
         <li class="menu-item">
-          <a class="flex items-center gap-x-3.5 rounded-full px-5 py-3 text-sm font-medium text-default-700 transition-all hover:bg-default-100 hs-accordion-active:bg-default-100" href="admin-dashboard.html">
+          <a class="flex items-center gap-x-3.5 rounded-full px-5 py-3 text-sm font-medium text-default-700 transition-all hover:bg-default-100 hs-accordion-active:bg-default-100" href="{{ route('dashboard') }}">
             <i class="ti ti-smart-home text-xl"></i>
             Dashboard
             <span class="ms-auto inline-block rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary">9+</span>
@@ -697,19 +697,6 @@
           </a>
         </li>
       </ul>
-  
-      <div class="mt-2">
-        <div class="-mb-4 flex flex-col items-center justify-center rounded-t-full border border-b-0 border-dashed border-primary-500/40 bg-primary-500/20 bg-cover bg-no-repeat px-4 pb-4 pt-10 text-center text-sm text-default-700" href="javascript:void(0)">
-          <div class="relative inline-flex h-16 w-16 items-center justify-center rounded-full border border-dashed border-primary bg-primary/20">
-            <img src="assets/favicon-712e565d.ico" alt="" class="absolute start-1/2 top-1/2 h-8 w-8 -translate-x-1/2 -translate-y-1/2" />
-          </div>
-          <p class="my-4 text-sm font-semibold text-primary-700">
-            🔥 Upgrade Your Plan. Find Out here
-          </p>
-          <a href="#" target="_blank" class="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-4 py-2 text-sm font-medium text-white transition-all hover:bg-primary-600"><i class="ti ti-brand-cashapp text-xl"></i> Upgrade
-          </a>
-        </div>
-      </div>
     </div>
   </div>
   <!-- End Sidebar -->
