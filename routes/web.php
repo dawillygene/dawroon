@@ -15,10 +15,13 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'topSellingProducts'])->name('dashboard');
     
     });
+
+
+
     
-// Route::get('/', function () {
-//     return view('test');
-// });
+Route::get('/admin/admin-product-list', function () {
+    return view('admin.admin-product-list');
+});
 
 // Route::get('/dashboard', function () {
 //     return view('dashboard');

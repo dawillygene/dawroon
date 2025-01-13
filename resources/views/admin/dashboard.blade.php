@@ -1,17 +1,18 @@
 <x-main-layout>
+    <x-root.dashboardMenu title="Dashboard" :links="['GreenCart', 'Admin', 'Dashboard']" />
 
     <x-cards.grid-layout>
         <x-cards.panel>
-            <x-cards.small-card title="Order" quantity="{{number_format( $statistics['totalOrders']) }}" rate="50%" color="red" icon="ti-shopping-bag" />
+            <x-cards.small-card title="Order" quantity="{{number_format( $statistics['totalOrders']) }}" rate="50%" color="blue" icon="ti-shopping-bag" />
         </x-cards.panel>
         <x-cards.panel>
-            <x-cards.small-card title="Total product" quantity="{{number_format($statistics['totalProducts'] ) }}" rate="50%" color="purple" icon="ti-shopping-bag" />
+            <x-cards.small-card title="Total product" quantity="{{number_format($statistics['totalProducts'] ) }}" rate="50%" color="green" icon="ti-cheese" />
         </x-cards.panel>
         <x-cards.panel>
-            <x-cards.small-card title="Total customer" quantity="{{number_format($statistics['totalUsers'] ) }}" rate="50%" color="green" icon="ti-shopping-bag" />
+            <x-cards.small-card title="Total customer" quantity="{{number_format($statistics['totalUsers'] ) }}" rate="50%" color="yellow" icon="ti-users" />
         </x-cards.panel>
         <x-cards.panel>
-            <x-cards.small-card title="Reviews" quantity="{{number_format($statistics['totalRevenue'] ) }}" rate="50%" color="blue" icon="ti-shopping-bag" />
+            <x-cards.small-card title="Reviews" quantity="{{number_format($statistics['totalRevenue'] ) }}" rate="50%" color="purple" icon="ti-star" />
         </x-cards.panel>
     </x-cards.grid-layout>
 
