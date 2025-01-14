@@ -3,20 +3,24 @@
 
     <x-cards.grid-layout>
         <x-cards.panel>
-            <x-cards.small-card title="Order" quantity="{{number_format( $statistics['totalOrders']) }}" rate="50%" color="blue" icon="ti-shopping-bag" />
+            <x-cards.small-card title="Order" quantity="{{ number_format($statistics['totalOrders']) }}" rate="50%"
+                color="blue" icon="ti-shopping-bag" />
         </x-cards.panel>
         <x-cards.panel>
-            <x-cards.small-card title="Total product" quantity="{{number_format($statistics['totalProducts'] ) }}" rate="50%" color="green" icon="ti-cheese" />
+            <x-cards.small-card title="Total product" quantity="{{ number_format($statistics['totalProducts']) }}"
+                rate="50%" color="green" icon="ti-cheese" />
         </x-cards.panel>
         <x-cards.panel>
-            <x-cards.small-card title="Total customer" quantity="{{number_format($statistics['totalUsers'] ) }}" rate="50%" color="yellow" icon="ti-users" />
+            <x-cards.small-card title="Total customer" quantity="{{ number_format($statistics['totalUsers']) }}"
+                rate="50%" color="yellow" icon="ti-users" />
         </x-cards.panel>
         <x-cards.panel>
-            <x-cards.small-card title="Reviews" quantity="{{number_format($statistics['totalRevenue'] ) }}" rate="50%" color="purple" icon="ti-star" />
+            <x-cards.small-card title="Reviews" quantity="{{ number_format($statistics['totalRevenue']) }}"
+                rate="50%" color="purple" icon="ti-star" />
         </x-cards.panel>
     </x-cards.grid-layout>
 
-  
+
     <div class="grid xl:grid-cols-3 gap-6">
         <div class="xl:col-span-2">
             <x-card>
@@ -77,41 +81,50 @@
                 <div id="ana_device" class="apex-charts py-3.5"></div>
             </x-card.card-body>
 
-            <x-table.table>
-                <x-slot name="header">
-                    <tr>
-                        <x-table.table-cell type="header">Product</x-table.table-cell>
-                        <x-table.table-cell type="header">Sales</x-table.table-cell>
-                        <x-table.table-cell type="header">Change</x-table.table-cell>
-                        <x-table.table-cell type="header">Profit</x-table.table-cell>
-                    </tr>
-                </x-slot>
 
-                <x-slot name="body">
-                    <x-table.table-row>
-                        <x-table.table-cell type="body">Nuts &
-                            Berries</x-table.table-cell>
-                        <x-table.table-cell type="small">1843</x-table.table-cell>
-                        <x-table.table-cell type="small">-3</x-table.table-cell>
-                        <x-table.table-cell type="small">-12</x-table.table-cell>
-                    </x-table.table-row>
+            <div class="border-t border-dashed border-default-200">
+                <div class="ovrflow-x-auto">
+                    <div class="min-w-full inline-block align-middle">
+                        <div class="overflow-hidden">
+                            <x-table.table>
+                                <x-slot name="header">
+                                    <tr>
+                                        <x-table.table-cell type="header">Product</x-table.table-cell>
+                                        <x-table.table-cell type="header">Sales</x-table.table-cell>
+                                        <x-table.table-cell type="header">Change</x-table.table-cell>
+                                        <x-table.table-cell type="header">Profit</x-table.table-cell>
+                                    </tr>
+                                </x-slot>
 
-                    <x-table.table-row>
-                        <x-table.table-cell type="body">Vegetables</x-table.table-cell>
-                        <x-table.table-cell type="small">2543</x-table.table-cell>
-                        <x-table.table-cell type="small">-5</x-table.table-cell>
-                        <x-table.table-cell type="small">-2</x-table.table-cell>
-                    </x-table.table-row>
+                                <x-slot name="body">
+                                    <x-table.table-row>
+                                        <x-table.table-cell type="body">Nuts &
+                                            Berries</x-table.table-cell>
+                                        <x-table.table-cell type="small">1843</x-table.table-cell>
+                                        <x-table.table-cell type="small">-3</x-table.table-cell>
+                                        <x-table.table-cell type="small">-12</x-table.table-cell>
+                                    </x-table.table-row>
 
-                    <x-table.table-row>
-                        <x-table.table-cell type="body">Fruits</x-table.table-cell>
-                        <x-table.table-cell type="small">3654</x-table.table-cell>
-                        <x-table.table-cell type="small">-5</x-table.table-cell>
-                        <x-table.table-cell type="small">-6</x-table.table-cell>
-                    </x-table.table-row>
-                </x-slot>
+                                    <x-table.table-row>
+                                        <x-table.table-cell type="body">Vegetables</x-table.table-cell>
+                                        <x-table.table-cell type="small">2543</x-table.table-cell>
+                                        <x-table.table-cell type="small">-5</x-table.table-cell>
+                                        <x-table.table-cell type="small">-2</x-table.table-cell>
+                                    </x-table.table-row>
 
-            </x-table.table>
+                                    <x-table.table-row>
+                                        <x-table.table-cell type="body">Fruits</x-table.table-cell>
+                                        <x-table.table-cell type="small">3654</x-table.table-cell>
+                                        <x-table.table-cell type="small">-5</x-table.table-cell>
+                                        <x-table.table-cell type="small">-6</x-table.table-cell>
+                                    </x-table.table-row>
+                                </x-slot>
+
+                            </x-table.table>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </x-card.card>
     </div>
 
@@ -120,22 +133,23 @@
 
 
 
-    
+
 
 
     <x-cards.card-main-heading />
     <x-cards.grid-layout type="large">
         @foreach ($topSellingProducts as $topSellingProduct)
-        <x-cards.panel style="relative">
+            <x-cards.panel style="relative">
 
 
-            <x-cards.product-card productImage="1-2ca96552.png" heading="{{ $topSellingProduct['name']}}" price="{{ $topSellingProduct['discount_price'] }}" discount="{{ $topSellingProduct['price'] }}"
-                rating="{{ $topSellingProduct['average_rating'] }}">
+                <x-cards.product-card productImage="1-2ca96552.png" heading="{{ $topSellingProduct['name'] }}"
+                    price="{{ $topSellingProduct['discount_price'] }}" discount="{{ $topSellingProduct['price'] }}"
+                    rating="{{ $topSellingProduct['average_rating'] }}">
 
-            </x-cards.product-card>
+                </x-cards.product-card>
 
 
-        </x-cards.panel>
+            </x-cards.panel>
         @endforeach
     </x-cards.grid-layout>
 
@@ -143,50 +157,53 @@
 
     <x-table.table-container>
         <x-table.table-header title="Recent Order" :options="['Today', 'Yesterday', 'Last 7 Days', 'Last 30 Days', 'This Month', 'Last Month']" />
-        <x-table.table>
-            <x-slot name="header">
-                <tr>
-                    <x-table.table-cell type="header">Order Number</x-table.table-cell>
-                    <x-table.table-cell type="header">Product Name</x-table.table-cell>
-                    <x-table.table-cell type="header">Order Date</x-table.table-cell>
-                    <x-table.table-cell type="header">Price</x-table.table-cell>
-                    <x-table.table-cell type="header" class="text-center">Action</x-table.table-cell>
-                </tr>
-            </x-slot>
-            <x-slot name="body">
-                <x-table.table-row>
-                    <x-table.table-cell>#CT0023</x-table.table-cell>
-                    <x-table.table-cell>Nuts And Berries</x-table.table-cell>
-                    <x-table.table-cell>28 Mar 2023</x-table.table-cell>
-                    <x-table.table-cell>$12.23</x-table.table-cell>
-                    <x-table.table-cell class="text-center">
-                        <x-table.status-badge color="pending">Pending</x-status-badge>
-                    </x-table.table-cell>
-                </x-table.table-row>
-                <x-table.table-row>
-                    <x-table.table-cell>#CT0023</x-table.table-cell>
-                    <x-table.table-cell>Nuts And Berries</x-table.table-cell>
-                    <x-table.table-cell>28 Mar 2023</x-table.table-cell>
-                    <x-table.table-cell>$12.23</x-table.table-cell>
-                    <x-table.table-cell class="text-center">
-                        <x-table.status-badge color="success">success</x-status-badge>
-                    </x-table.table-cell>
-                </x-table.table-row>
-                <x-table.table-row>
-                    <x-table.table-cell>#CT0023</x-table.table-cell>
-                    <x-table.table-cell>Nuts And Berries</x-table.table-cell>
-                    <x-table.table-cell>28 Mar 2023</x-table.table-cell>
-                    <x-table.table-cell>$12.23</x-table.table-cell>
-                    <x-table.table-cell class="text-center">
-                        <x-table.status-badge color="error">deleted</x-status-badge>
-                    </x-table.table-cell>
-                </x-table.table-row>
-            </x-slot>
-        </x-table.table>
+        <div class="border-t border-dashed border-default-200">
+            <div class="ovrflow-x-auto">
+                <div class="min-w-full inline-block align-middle">
+                    <div class="overflow-hidden">
+                        <x-table.table>
+                            <x-slot name="header">
+                                <tr>
+                                    <x-table.table-cell type="header">Order Number</x-table.table-cell>
+                                    <x-table.table-cell type="header">Product Name</x-table.table-cell>
+                                    <x-table.table-cell type="header">Order Date</x-table.table-cell>
+                                    <x-table.table-cell type="header">Price</x-table.table-cell>
+                                    <x-table.table-cell type="header" class="text-center">Action</x-table.table-cell>
+                                </tr>
+                            </x-slot>
+                            <x-slot name="body">
+                                <x-table.table-row>
+                                    <x-table.table-cell>#CT0023</x-table.table-cell>
+                                    <x-table.table-cell>Nuts And Berries</x-table.table-cell>
+                                    <x-table.table-cell>28 Mar 2023</x-table.table-cell>
+                                    <x-table.table-cell>$12.23</x-table.table-cell>
+                                    <x-table.table-cell class="text-center">
+                                        <x-table.status-badge color="pending">Pending</x-status-badge>
+                                    </x-table.table-cell>
+                                </x-table.table-row>
+                                <x-table.table-row>
+                                    <x-table.table-cell>#CT0023</x-table.table-cell>
+                                    <x-table.table-cell>Nuts And Berries</x-table.table-cell>
+                                    <x-table.table-cell>28 Mar 2023</x-table.table-cell>
+                                    <x-table.table-cell>$12.23</x-table.table-cell>
+                                    <x-table.table-cell class="text-center">
+                                        <x-table.status-badge color="success">success</x-status-badge>
+                                    </x-table.table-cell>
+                                </x-table.table-row>
+                                <x-table.table-row>
+                                    <x-table.table-cell>#CT0023</x-table.table-cell>
+                                    <x-table.table-cell>Nuts And Berries</x-table.table-cell>
+                                    <x-table.table-cell>28 Mar 2023</x-table.table-cell>
+                                    <x-table.table-cell>$12.23</x-table.table-cell>
+                                    <x-table.table-cell class="text-center">
+                                        <x-table.status-badge color="error">deleted</x-status-badge>
+                                    </x-table.table-cell>
+                                </x-table.table-row>
+                            </x-slot>
+                        </x-table.table>
+                    </div>
+                </div>
+            </div>
+        </div>
     </x-table.table-container>
-<<<<<<< Updated upstream
-=======
-
-
->>>>>>> Stashed changes
 </x-main-layout>

@@ -15,8 +15,6 @@
   <div class="min-h-screen flex flex-col lg:ps-64 w-full">
   <x-root.header />
    <div class="space-y-6 p-6">
-   {{-- <x-root.dashboardMenu /> --}}
-
 
   {{ $slot }}
 
