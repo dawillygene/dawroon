@@ -1,5 +1,5 @@
 <x-main-layout>
-  <x-root.dashboardMenu title="Product List" :links="['GreenCart', 'Product', 'Product List']" />
+  <x-root.dashboardMenu title="Product List" :links="['Eazylinky', 'Product', 'Product List']" />
     <x-cards.grid-layout>
 
         <x-cards.panel class=" bg-white dark:bg-default-50 h-fit">
@@ -70,43 +70,47 @@
             
           <x-table.table  variant="min" theadClass="min">
           <x-slot name="header">
-
             <x-table.table-row>
               <td class="px-6 py-3 w-10 font-medium text-default-900">
                 <input type="checkbox" class="form-checkbox transition-all duration-100 ease-in-out border-default-200 cursor-pointer rounded focus:ring-0 text-primary bg-default-50 ring-transparent ring-offset-0">
               </td>
-              <th scope="col" class="px-6 py-3 text-start text-base capitalize font-semibold text-default-900 min-w-32">Product</th>
-              <th scope="col" class="px-6 py-3 text-start text-base capitalize font-semibold text-default-900 min-w-32">Type</th>
-              <th scope="col" class="px-6 py-3 text-start text-base capitalize font-semibold text-default-900 min-w-40">Price</th>
-              <th scope="col" class="px-6 py-3 text-start text-base capitalize font-semibold text-default-900 min-w-40">Quantity</th>
-              <th scope="col" class="px-6 py-3 text-start text-base capitalize font-semibold text-default-900 min-w-32">Create By</th>
-              <th scope="col" class="px-6 py-3 text-start text-base capitalize font-semibold text-default-900 min-w-32">Status</th>
-              <th scope="col" class="px-3 py-3 text-center text-base capitalize font-semibold text-default-900 min-w-32">Action</th>
+              
+              <x-table.table-cell tag="th" type="custom-header" class="text-start min-w-32">Product </x-table.table-cell>
+              <x-table.table-cell tag="th" type="custom-header" class="text-start min-w-32">Type </x-table.table-cell>
+              <x-table.table-cell tag="th" type="custom-header" class="text-start min-w-40">Price </x-table.table-cell>
+              <x-table.table-cell tag="th" type="custom-header" class="text-start min-w-40">Quantity </x-table.table-cell> 
+              <x-table.table-cell tag="th" type="custom-header" class="text-start min-w-32">Create By </x-table.table-cell> 
+              <x-table.table-cell tag="th" type="custom-header" class="text-start min-w-32">Status </x-table.table-cell> 
+              <x-table.table-cell tag="th" type="custom-header" class="text-center min-w-32">Action </x-table.table-cell>  
             </x-table.table-row>
           </x-slot>
           <x-slot name="body">
-            <tr>
+
+            <x-table.table-row>
               <td class="px-6 py-3">
                 <input type="checkbox" class="form-checkbox transition-all duration-100 ease-in-out border-default-200 cursor-pointer rounded text-primary bg-default-50 focus:ring-transparent focus:ring-offset-0">
               </td>
-              <td class="px-6 py-3 text-default-900 font-semibold whitespace-nowrap">
+
+              <x-table.table-cell tag="td" type="default" class="font-semibold">
                 <spam class="flex items-center gap-2">
                   <span class="h-10 w-10 inline-flex items-center justify-center rounded-full">
-                    <img src="assets/1-2ca96552.png" alt="" class="max-w-full h-full rounded-full">
+                    <x-cards.product-card-image productImage="1-2ca96552.png" class="max-w-full h-full rounded-full" />
                   </span>
                   <h6 class="text-sm font-semibold text-default-700">Banana</h6>
                 </spam>
-              </td>
-              <td class="px-6 py-3 text-default-900 font-medium whitespace-nowrap">Fruit</td>
-              <td class="px-6 py-3 text-primary font-semibold whitespace-nowrap">$142</td>
-              <td class="px-6 py-3 text-default-600 font-medium whitespace-nowrap">12</td>
-              <td class="px-6 py-3 text-default-600 font-medium whitespace-nowrap">Admin</td>
-              <td class="px-6 py-3 text-primary font-medium whitespace-nowrap">
+              </x-table.table-cell>
+             
+              <x-table.table-cell tag="td" type="default" class="font-medium">Fruit</x-table.table-cell>
+              <x-table.table-cell tag="td" type="primary" class="font-semibold">$142</x-table.table-cell>
+              <x-table.table-cell tag="td" type="none" class="text-default-600 font-medium">12</x-table.table-cell>
+              <x-table.table-cell tag="td" type="none" class="text-default-600 font-medium">Admin</x-table.table-cell>
+              <x-table.table-cell tag="td" type="primary" class="font-medium">
                 <span class="px-3 py-1 text-xs font-medium rounded-md bg-primary/20 text-primary">
                   Publish
                 </span>
-              </td>
-              <td class="whitespace-nowrap py-3 px-3 text-center text-sm font-medium">
+              </x-table.table-cell>
+
+              <x-table.table-cell tag="td" type="none" class="text-center text-sm font-medium">
                 <div class="flex items-center justify-center gap-2">
                   <button type="button" class="inline-flex items-center justify-center h-9 w-9 rounded-full bg-default-100 border border-default-200 text-default-900 transition-all duration-200 hover:border-primary hover:bg-primary hover:text-white">
                     <i class="ti ti-eye text-lg"></i>
@@ -118,30 +122,34 @@
                     <i class="ti ti-trash text-lg"></i>
                   </button>
                 </div>
-              </td>
-            </tr>
-            <tr>
+              </x-table.table-cell>
+            </x-table.table-row>
+
+            <x-table.table-row>
               <td class="px-6 py-3">
                 <input type="checkbox" class="form-checkbox transition-all duration-100 ease-in-out border-default-200 cursor-pointer rounded text-primary bg-default-50 focus:ring-transparent focus:ring-offset-0">
               </td>
-              <td class="px-6 py-3 text-default-900 font-semibold whitespace-nowrap">
+
+              <x-table.table-cell tag="td" type="default" class="font-semibold">
                 <spam class="flex items-center gap-2">
                   <span class="h-10 w-10 inline-flex items-center justify-center rounded-full">
-                    <img src="assets/2-423cfe2a.png" alt="" class="max-w-full h-full rounded-full">
+                    <x-cards.product-card-image productImage="1-2ca96552.png" class="max-w-full h-full rounded-full" />
                   </span>
-                  <h6 class="text-sm font-semibold text-default-700">Asparagus</h6>
+                  <h6 class="text-sm font-semibold text-default-700">Banana</h6>
                 </spam>
-              </td>
-              <td class="px-6 py-3 text-default-900 font-medium whitespace-nowrap">Nuts</td>
-              <td class="px-6 py-3 text-primary font-semibold whitespace-nowrap">$12</td>
-              <td class="px-6 py-3 text-default-600 font-medium whitespace-nowrap">14</td>
-              <td class="px-6 py-3 text-default-600 font-medium whitespace-nowrap">Admin</td>
-              <td class="px-6 py-3 font-medium whitespace-nowrap">
+              </x-table.table-cell>
+             
+              <x-table.table-cell tag="td" type="default" class="font-medium">Fruit</x-table.table-cell>
+              <x-table.table-cell tag="td" type="primary" class="font-semibold">$142</x-table.table-cell>
+              <x-table.table-cell tag="td" type="none" class="text-default-600 font-medium">12</x-table.table-cell>
+              <x-table.table-cell tag="td" type="none" class="text-default-600 font-medium">Admin</x-table.table-cell>
+              <x-table.table-cell tag="td" type="primary" class="font-medium">
                 <span class="px-3 py-1 text-xs font-medium rounded-md bg-yellow-500/20 text-yellow-500">
                   Pending
                 </span>
-              </td>
-              <td class="whitespace-nowrap py-3 px-3 text-center text-sm font-medium">
+              </x-table.table-cell>
+
+              <x-table.table-cell tag="td" type="none" class="text-center text-sm font-medium">
                 <div class="flex items-center justify-center gap-2">
                   <button type="button" class="inline-flex items-center justify-center h-9 w-9 rounded-full bg-default-100 border border-default-200 text-default-900 transition-all duration-200 hover:border-primary hover:bg-primary hover:text-white">
                     <i class="ti ti-eye text-lg"></i>
@@ -153,15 +161,131 @@
                     <i class="ti ti-trash text-lg"></i>
                   </button>
                 </div>
+              </x-table.table-cell>
+            </x-table.table-row>
+
+            <x-table.table-row>
+              <td class="px-6 py-3">
+                <input type="checkbox" class="form-checkbox transition-all duration-100 ease-in-out border-default-200 cursor-pointer rounded text-primary bg-default-50 focus:ring-transparent focus:ring-offset-0">
               </td>
-            </tr>
+
+              <x-table.table-cell tag="td" type="default" class="font-semibold">
+                <spam class="flex items-center gap-2">
+                  <span class="h-10 w-10 inline-flex items-center justify-center rounded-full">
+                    <x-cards.product-card-image productImage="1-2ca96552.png" class="max-w-full h-full rounded-full" />
+                  </span>
+                  <h6 class="text-sm font-semibold text-default-700">Banana</h6>
+                </spam>
+              </x-table.table-cell>
+             
+              <x-table.table-cell tag="td" type="default" class="font-medium">Fruit</x-table.table-cell>
+              <x-table.table-cell tag="td" type="primary" class="font-semibold">$142</x-table.table-cell>
+              <x-table.table-cell tag="td" type="none" class="text-default-600 font-medium">12</x-table.table-cell>
+              <x-table.table-cell tag="td" type="none" class="text-default-600 font-medium">Admin</x-table.table-cell>
+              <x-table.table-cell tag="td" type="primary" class="font-medium">
+                <span class="px-3 py-1 text-xs font-medium rounded-md bg-yellow-500/20 text-yellow-500">
+                  Pending
+                </span>
+              </x-table.table-cell>
+
+              <x-table.table-cell tag="td" type="none" class="text-center text-sm font-medium">
+                <div class="flex items-center justify-center gap-2">
+                  <button type="button" class="inline-flex items-center justify-center h-9 w-9 rounded-full bg-default-100 border border-default-200 text-default-900 transition-all duration-200 hover:border-primary hover:bg-primary hover:text-white">
+                    <i class="ti ti-eye text-lg"></i>
+                  </button>
+                  <button type="button" class="inline-flex items-center justify-center h-9 w-9 rounded-full bg-default-100 border border-default-200 text-default-900 transition-all duration-200 hover:border-primary hover:bg-primary hover:text-white">
+                    <i class="ti ti-edit-circle text-base"></i>
+                  </button>
+                  <button class="inline-flex items-center justify-center h-9 w-9 rounded-full bg-default-100 border border-default-200 text-default-900 transition-all duration-200 hover:border-primary hover:bg-primary hover:text-white">
+                    <i class="ti ti-trash text-lg"></i>
+                  </button>
+                </div>
+              </x-table.table-cell>
+            </x-table.table-row>
+
+            <x-table.table-row>
+              <td class="px-6 py-3">
+                <input type="checkbox" class="form-checkbox transition-all duration-100 ease-in-out border-default-200 cursor-pointer rounded text-primary bg-default-50 focus:ring-transparent focus:ring-offset-0">
+              </td>
+
+              <x-table.table-cell tag="td" type="default" class="font-semibold">
+                <spam class="flex items-center gap-2">
+                  <span class="h-10 w-10 inline-flex items-center justify-center rounded-full">
+                    <x-cards.product-card-image productImage="1-2ca96552.png" class="max-w-full h-full rounded-full" />
+                  </span>
+                  <h6 class="text-sm font-semibold text-default-700">Banana</h6>
+                </spam>
+              </x-table.table-cell>
+             
+              <x-table.table-cell tag="td" type="default" class="font-medium">Fruit</x-table.table-cell>
+              <x-table.table-cell tag="td" type="primary" class="font-semibold">$142</x-table.table-cell>
+              <x-table.table-cell tag="td" type="none" class="text-default-600 font-medium">12</x-table.table-cell>
+              <x-table.table-cell tag="td" type="none" class="text-default-600 font-medium">Admin</x-table.table-cell>
+              <x-table.table-cell tag="td" type="primary" class="font-medium">
+                <span class="px-3 py-1 text-xs font-medium rounded-md bg-yellow-500/20 text-yellow-500">
+                  Pending
+                </span>
+              </x-table.table-cell>
+
+              <x-table.table-cell tag="td" type="none" class="text-center text-sm font-medium">
+                <div class="flex items-center justify-center gap-2">
+                  <button type="button" class="inline-flex items-center justify-center h-9 w-9 rounded-full bg-default-100 border border-default-200 text-default-900 transition-all duration-200 hover:border-primary hover:bg-primary hover:text-white">
+                    <i class="ti ti-eye text-lg"></i>
+                  </button>
+                  <button type="button" class="inline-flex items-center justify-center h-9 w-9 rounded-full bg-default-100 border border-default-200 text-default-900 transition-all duration-200 hover:border-primary hover:bg-primary hover:text-white">
+                    <i class="ti ti-edit-circle text-base"></i>
+                  </button>
+                  <button class="inline-flex items-center justify-center h-9 w-9 rounded-full bg-default-100 border border-default-200 text-default-900 transition-all duration-200 hover:border-primary hover:bg-primary hover:text-white">
+                    <i class="ti ti-trash text-lg"></i>
+                  </button>
+                </div>
+              </x-table.table-cell>
+            </x-table.table-row>
+
+            <x-table.table-row>
+              <td class="px-6 py-3">
+                <input type="checkbox" class="form-checkbox transition-all duration-100 ease-in-out border-default-200 cursor-pointer rounded text-primary bg-default-50 focus:ring-transparent focus:ring-offset-0">
+              </td>
+
+              <x-table.table-cell tag="td" type="default" class="font-semibold">
+                <spam class="flex items-center gap-2">
+                  <span class="h-10 w-10 inline-flex items-center justify-center rounded-full">
+                    <x-cards.product-card-image productImage="1-2ca96552.png" class="max-w-full h-full rounded-full" />
+                  </span>
+                  <h6 class="text-sm font-semibold text-default-700">Banana</h6>
+                </spam>
+              </x-table.table-cell>
+             
+              <x-table.table-cell tag="td" type="default" class="font-medium">Fruit</x-table.table-cell>
+              <x-table.table-cell tag="td" type="primary" class="font-semibold">$142</x-table.table-cell>
+              <x-table.table-cell tag="td" type="none" class="text-default-600 font-medium">12</x-table.table-cell>
+              <x-table.table-cell tag="td" type="none" class="text-default-600 font-medium">Admin</x-table.table-cell>
+              <x-table.table-cell tag="td" type="primary" class="font-medium">
+                <span class="px-3 py-1 text-xs font-medium rounded-md bg-yellow-500/20 text-yellow-500">
+                  Pending
+                </span>
+              </x-table.table-cell>
+
+              <x-table.table-cell tag="td" type="none" class="text-center text-sm font-medium">
+                <div class="flex items-center justify-center gap-2">
+                  <button type="button" class="inline-flex items-center justify-center h-9 w-9 rounded-full bg-default-100 border border-default-200 text-default-900 transition-all duration-200 hover:border-primary hover:bg-primary hover:text-white">
+                    <i class="ti ti-eye text-lg"></i>
+                  </button>
+                  <button type="button" class="inline-flex items-center justify-center h-9 w-9 rounded-full bg-default-100 border border-default-200 text-default-900 transition-all duration-200 hover:border-primary hover:bg-primary hover:text-white">
+                    <i class="ti ti-edit-circle text-base"></i>
+                  </button>
+                  <button class="inline-flex items-center justify-center h-9 w-9 rounded-full bg-default-100 border border-default-200 text-default-900 transition-all duration-200 hover:border-primary hover:bg-primary hover:text-white">
+                    <i class="ti ti-trash text-lg"></i>
+                  </button>
+                </div>
+              </x-table.table-cell>
+            </x-table.table-row>
           </x-slot>
           </x-table.table>  
         </div>
 
         <div class="flex items-center justify-between py-3 px-6 border-t border-dashed border-default-200">
           <h6 class="text-default-600">Showing 1 to 5 of 12</h6>
-
           <nav class="flex items-center gap-1">
             <a class="inline-flex items-center justify-center h-8 w-8 border border-default-200 rounded-md text-default-950 transition-all duration-200 hover:bg-primary hover:text-white hover:border-primary" href="#">
               <i class="ti ti-chevron-left text-base"></i>
@@ -176,5 +300,4 @@
           </nav>
         </div>
       </div>
-
 </x-main-layout>

@@ -10,8 +10,8 @@
         <!-- Logo -->
         <div class="flex lg:hidden">
           <a href="admin-dashboard.html">
-            <img src="assets/logo-dark-1caee452.png" alt="logo" class="flex h-10 w-full dark:hidden" />
-            <img src="assets/logo-50f51c55.png" alt="logo" class="hidden h-10 w-full dark:flex" />
+            <x-cards.product-card-image productImage="logo-dark-1caee452.png" alt="logo" class="flex h-10 w-full dark:hidden"/>
+            <x-cards.product-card-image productImage="logo-dark-1caee452.png" alt="logo" class="hidden h-10 w-full dark:flex"/>
           </a>
         </div>
     
@@ -88,7 +88,7 @@
                   <h5 class="mb-2 text-xs text-default-700">Today</h5>
     
                   <a href="javascript:void(0);" class="mb-4 flex items-center">
-                    <img src="assets/1-f1564e7c.png" class="h-10 w-10 rounded-full" />
+                    <x-cards.product-card-image productImage="1-f1564e7c.png" alt="logo" class="h-10 w-10 rounded-full"/>
                     <div class="ms-2 flex-grow truncate">
                       <div class="flex items-center justify-between">
                         <h5 class="text-sm font-medium text-default-800">
@@ -102,7 +102,7 @@
     
                   <a href="javascript:void(0);" class="mb-4 flex items-center">
                     <div class="flex-shrink-0">
-                      <img src="assets/2-cb0540ba.png" class="h-10 w-10 rounded-full" />
+                      <x-cards.product-card-image productImage="2-cb0540ba.png" alt="logo" class="h-10 w-10 rounded-full"/>
                     </div>
                     <div class="ms-2 flex-grow truncate">
                       <div class="flex items-center justify-between">
@@ -115,7 +115,7 @@
     
                   <a href="javascript:void(0);" class="mb-4 flex items-center">
                     <div class="flex-shrink-0">
-                      <img src="assets/3-7b02f585.png" class="h-10 w-10 rounded-full" />
+                      <x-cards.product-card-image productImage="2-cb0540ba.png" alt="logo" class="h-10 w-10 rounded-full"/>
                     </div>
                     <div class="ms-2 flex-grow truncate">
                       <div class="flex items-center justify-between">
@@ -132,7 +132,7 @@
     
                   <a href="javascript:void(0);" class="mb-4 flex items-center">
                     <div class="flex-shrink-0">
-                      <img src="assets/4-2345eb04.png" class="h-10 w-10 rounded-full" />
+                      <x-cards.product-card-image productImage="4-2345eb04.png" alt="logo" class="h-10 w-10 rounded-full"/>
                     </div>
                     <div class="ms-2 flex-grow truncate">
                       <h5 class="mb-1 text-sm font-semibold">Datacorp</h5>
@@ -142,7 +142,7 @@
     
                   <a href="javascript:void(0);" class="flex">
                     <div class="flex-shrink-0">
-                      <img src="assets/5-0368e7b5.png" class="h-10 w-10 rounded-full" />
+                      <x-cards.product-card-image productImage="5-0368e7b5.png" alt="logo" class="h-10 w-10 rounded-full"/>
                     </div>
                     <div class="ms-2 flex-grow truncate">
                       <h5 class="mb-1 text-sm font-semibold">Karen Robinson</h5>
@@ -162,7 +162,7 @@
           <div class="flex">
             <div class="hs-dropdown relative inline-flex">
               <button id="hs-dropdown-with-header" type="button" class="hs-dropdown-toggle inline-flex flex-shrink-0 items-center justify-center gap-2 rounded-md align-middle text-xs font-medium text-default-700 transition-all">
-                <img class="inline-block h-10 w-10 rounded-full" src="assets/7-37b455da.png" />
+                <x-cards.product-card-image productImage="7-37b455da.png" alt="logo" class="inline-block h-10 w-10 rounded-full"/>
                 <div class="hidden text-start lg:block">
                   <p class="text-xs font-semibold text-default-700">Mary Hopkins</p>
                   <p class="mt-1 text-xs text-default-500">Admin</p>

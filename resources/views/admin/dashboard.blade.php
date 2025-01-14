@@ -1,5 +1,5 @@
 <x-main-layout>
-    <x-root.dashboardMenu title="Dashboard" :links="['GreenCart', 'Admin', 'Dashboard']" />
+    <x-root.dashboardMenu title="Dashboard" :links="['Eazylinky', 'Admin', 'Dashboard']" />
 
     <x-cards.grid-layout>
         <x-cards.panel>
