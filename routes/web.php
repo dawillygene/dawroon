@@ -20,7 +20,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     
 Route::get('/admin/admin-product-list', function () {
-    return view('admin.admin-product-list');
+    return view('admin.product.list');
 });
 
 // Route::get('/dashboard', function () {
