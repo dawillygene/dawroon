@@ -1,12 +1,10 @@
 <?php
 
 namespace App\Services;
-use App\Models\Product;
 use App\Models\OrderItem;
 use App\Models\ProductReview;
 use Illuminate\Support\Carbon;
 use App\Models\ProducerPromotion;
-use Illuminate\Support\Facades\DB;
 /**
  * Class ProductService.
  */
