@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 
+use App\Services\OrderService;
 use App\Services\ProductService;
 use Illuminate\Routing\Controller;
 use App\Services\statistics\UserStatisticsService;
@@ -16,9 +17,12 @@ class DashboardController extends Controller
     protected $productStatisticsService;
     protected $userStatisticsService;
 
-    public function __construct(ProductService $productService,OrderStatisticsService $orderStatisticsService,ProductStatisticsService $productStatisticsService,UserStatisticsService $userStatisticsService)
+    protected $orderService;
+
+    public function __construct(OrderService $orderService,ProductService $productService,OrderStatisticsService $orderStatisticsService,ProductStatisticsService $productStatisticsService,UserStatisticsService $userStatisticsService)
     {
         $this->productService = $productService;
+        $this->orderService = $orderService;
         $this->orderStatisticsService = $orderStatisticsService;
         $this->productStatisticsService = $productStatisticsService;
         $this->userStatisticsService = $userStatisticsService;
@@ -27,31 +31,41 @@ class DashboardController extends Controller
     public function topSellingProducts()
     {
       
-      
         $statistics = [
+
             'totalRevenue' => $this->orderStatisticsService->getTotalRevenue(),
             'averageOrderValue' => $this->orderStatisticsService->getAverageOrderValue(),
-            'totalOrders' => $this->orderStatisticsService->getTotalOrders(),
-            'completedOrders' => $this->orderStatisticsService->getOrdersByStatus('completed'),
-            'revenueLast30Days' => $this->orderStatisticsService->getRevenueForPeriod(30),
-            'ordersLast30Days' => $this->orderStatisticsService->getOrdersForPeriod(30),
-            'topUsers' => $this->orderStatisticsService->getTopUsersBySpending(5),
-
+           
             'totalProducts' => $this->productStatisticsService->getTotalProducts(),
-            'averageProductPrice' => $this->productStatisticsService->getAverageProductPrice(),
-            'lowStockProducts' => $this->productStatisticsService->getLowStockProducts(),
-            'totalStockValue' => $this->productStatisticsService->getTotalStockValue(),
-            'topProductsByStock' => $this->productStatisticsService->getTopProductsByStock(5),
-            'topProductsByPrice' => $this->productStatisticsService->getTopProductsByPrice(5),
-
-            'totalUsers' => $this->userStatisticsService->getTotalUsers(),
             'activeUsers' => $this->userStatisticsService->getActiveUsers(),
             'inactiveUsers' => $this->userStatisticsService->getInactiveUsers(),
             'recentUsers' => $this->userStatisticsService->getRecentUsers(),
-            'averageUsersPerMonth' => $this->userStatisticsService->getAverageUsersPerMonth(),
-            'topActiveUsers' => $this->userStatisticsService->getTopActiveUsers(5),
+
+
+            //ORDERS HANDLING
+            'totalOrders' => $this->orderStatisticsService->getTotalOrders(),
+            // 'ordersLast30Days' => $this->orderStatisticsService->getOrdersForPeriod(30),
+            // 'completedOrders' => $this->orderStatisticsService->getOrdersByStatus('completed'),
+            // 'revenueLast30Days' => $this->orderStatisticsService->getRevenueForPeriod(30),
+            // 'topUsers' => $this->orderStatisticsService->getTopUsersBySpending(5),
+
+
+            // 'averageProductPrice' => $this->productStatisticsService->getAverageProductPrice(),
+            // 'lowStockProducts' => $this->productStatisticsService->getLowStockProducts(),
+            // 'totalStockValue' => $this->productStatisticsService->getTotalStockValue(),
+            // 'topProductsByStock' => $this->productStatisticsService->getTopProductsByStock(5),
+            // 'topProductsByPrice' => $this->productStatisticsService->getTopProductsByPrice(5),
+            
+           
+           //USERS HANDLING
+            'totalUsers' => $this->userStatisticsService->getTotalUsers(),
+            // 'averageUsersPerMonth' => $this->userStatisticsService->getAverageUsersPerMonth(),
+            // 'topActiveUsers' => $this->userStatisticsService->getTopActiveUsers(5),
         ];
 
+        $recentOrders = $this->orderService->getCurrentOrders(['pending', 'processing']);
+        $topSellingProducts = $this->productService->topSaleProduct();
+        
         $topSellingProducts = $this->productService->topSaleProduct();
         return view('admin.dashboard', compact('statistics','topSellingProducts'));
    

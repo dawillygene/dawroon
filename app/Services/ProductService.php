@@ -13,16 +13,6 @@ class ProductService
     
     public function topSaleProduct()
     {
-
-        $topProducts = OrderItem::select('order_items.product_id', 'order_items.quantity')
-        ->with(['product' => function ($query) {
-            $query->select('product_id', 'name', 'price', 'image_url');
-        }])
-        ->orderByDesc('order_items.quantity')
-        ->limit(6)
-        ->get();
-
-
         $topProducts = OrderItem::select('order_items.product_id', 'order_items.quantity')
         ->with(['product' => function ($query) {
             $query->select('product_id', 'name', 'price', 'image_url');
@@ -58,6 +48,7 @@ class ProductService
 
         $filteredProducts[] = [
             'product_id' => $product->product_id,
+            'quatity_of_product_sold' =>$product->quantity,
             'discount_price' => $finalPrice,
             'name' => $product->product->name,
             'price' => $product->product->price,
