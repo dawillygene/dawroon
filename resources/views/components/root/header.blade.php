@@ -164,7 +164,7 @@
               <button id="hs-dropdown-with-header" type="button" class="hs-dropdown-toggle inline-flex flex-shrink-0 items-center justify-center gap-2 rounded-md align-middle text-xs font-medium text-default-700 transition-all">
                 <x-cards.product-card-image productImage="7-37b455da.png" alt="logo" class="inline-block h-10 w-10 rounded-full"/>
                 <div class="hidden text-start lg:block">
-                  <p class="text-xs font-semibold text-default-700">Mary Hopkins</p>
+                  <p class="text-xs font-semibold text-default-700"> {{ Auth::user()->name }}</p>
                   <p class="mt-1 text-xs text-default-500">Admin</p>
                 </div>
               </button>
