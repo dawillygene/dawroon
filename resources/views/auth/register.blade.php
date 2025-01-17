@@ -56,14 +56,13 @@
                 />
                 <button
                     type="button"
-                    id="password-addon"
+                    id="password-confirmation-addon"
                     class="password-toggle inline-flex items-center justify-center px-4 border border-default-400/40 bg-transparent rounded-e-md -ms-px focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
                 >
                     <i class="ti ti-eye password-eye-on text-xl text-default-900"></i>
                     <i class="ti ti-eye-off password-eye-off text-xl text-default-900 hidden"></i>
                 </button>
-            </div> 
-        
+            </div>
             <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
         </div>
 
