@@ -63,11 +63,43 @@ class DashboardController extends Controller
             // 'topActiveUsers' => $this->userStatisticsService->getTopActiveUsers(5),
         ];
 
+           $statistics = [
+
+            'totalRevenue' => $this->orderStatisticsService->getTotalRevenue(),
+            'averageOrderValue' => $this->orderStatisticsService->getAverageOrderValue(),
+           
+            'totalProducts' => $this->productStatisticsService->getTotalProducts(),
+            'activeUsers' => $this->userStatisticsService->getActiveUsers(),
+            'inactiveUsers' => $this->userStatisticsService->getInactiveUsers(),
+            'recentUsers' => $this->userStatisticsService->getRecentUsers(),
+
+
+            //ORDERS HANDLING
+            'totalOrders' => $this->orderStatisticsService->getTotalOrders(),
+            // 'ordersLast30Days' => $this->orderStatisticsService->getOrdersForPeriod(30),
+            // 'completedOrders' => $this->orderStatisticsService->getOrdersByStatus('completed'),
+            // 'revenueLast30Days' => $this->orderStatisticsService->getRevenueForPeriod(30),
+            // 'topUsers' => $this->orderStatisticsService->getTopUsersBySpending(5),
+
+
+            // 'averageProductPrice' => $this->productStatisticsService->getAverageProductPrice(),
+            // 'lowStockProducts' => $this->productStatisticsService->getLowStockProducts(),
+            // 'totalStockValue' => $this->productStatisticsService->getTotalStockValue(),
+            // 'topProductsByStock' => $this->productStatisticsService->getTopProductsByStock(5),
+            // 'topProductsByPrice' => $this->productStatisticsService->getTopProductsByPrice(5),
+            
+           
+           //USERS HANDLING
+            'totalUsers' => $this->userStatisticsService->getTotalUsers(),
+            // 'averageUsersPerMonth' => $this->userStatisticsService->getAverageUsersPerMonth(),
+            // 'topActiveUsers' => $this->userStatisticsService->getTopActiveUsers(5),
+        ];
+
         $recentOrders = $this->orderService->getCurrentOrders(['pending', 'processing']);
         $topSellingProducts = $this->productService->topSaleProduct();
-        
+        dd($recentOrders);
         $topSellingProducts = $this->productService->topSaleProduct();
-        return view('admin.dashboard', compact('statistics','topSellingProducts'));
+        return view('admin.dashboard', compact('statistics','topSellingProducts','recentOrders'));
    
     }
 }

@@ -12,7 +12,7 @@ class Order extends Model
     protected $table = 'orders';
     protected $primaryKey = 'order_id';
     protected $fillable = [
-        'id', // User ID (foreign key)
+        'id', 
         'order_date',
         'total_price',
         'status',
@@ -31,4 +31,5 @@ class Order extends Model
     {
         return $this->hasMany(OrderItem::class, 'order_id', 'order_id');
     }
+
 }

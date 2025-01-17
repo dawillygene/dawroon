@@ -172,15 +172,20 @@
                                 </tr>
                             </x-slot>
                             <x-slot name="body">
+                                @foreach ($recentOrders as $order )
+
                                 <x-table.table-row>
-                                    <x-table.table-cell>#CT0023</x-table.table-cell>
-                                    <x-table.table-cell>Nuts And Berries</x-table.table-cell>
-                                    <x-table.table-cell>28 Mar 2023</x-table.table-cell>
-                                    <x-table.table-cell>$12.23</x-table.table-cell>
+                                    <x-table.table-cell>{{ $order->order_id }}</x-table.table-cell>
+                                    <x-table.table-cell> User: {{ $order->id }}</x-table.table-cell>
+                                    <x-table.table-cell>{{ \Carbon\Carbon::parse($order->order_date)->format('Y-m-d') }}</x-table.table-cell>
+                                    <x-table.table-cell>{{ $order->total_price }}</x-table.table-cell>
                                     <x-table.table-cell class="text-center">
-                                        <x-table.status-badge color="pending">Pending</x-status-badge>
+                                        <x-table.status-badge color="pending">{{ $order->status }}</x-status-badge>
                                     </x-table.table-cell>
-                                </x-table.table-row>
+                                </x-table.table-row>    
+
+                                @endforeach
+                                
                                 <x-table.table-row>
                                     <x-table.table-cell>#CT0023</x-table.table-cell>
                                     <x-table.table-cell>Nuts And Berries</x-table.table-cell>
@@ -199,6 +204,7 @@
                                         <x-table.status-badge color="error">deleted</x-status-badge>
                                     </x-table.table-cell>
                                 </x-table.table-row>
+                                
                             </x-slot>
                         </x-table.table>
                     </div>
