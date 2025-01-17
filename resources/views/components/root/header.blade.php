@@ -170,9 +170,9 @@
               </button>
     
               <div class="hs-dropdown-menu duration mt-2 hidden min-w-[12rem] rounded-lg border border-default-200 bg-white p-2 opacity-0 shadow-md transition-[opacity,margin] hs-dropdown-open:opacity-100 dark:bg-default-50">
-                <a class="flex items-center gap-x-3.5 rounded-md px-3 py-2 text-sm font-medium text-default-800 transition-all hover:bg-default-100" href="admin-wallet.html">
+                <a class="flex items-center gap-x-3.5 rounded-md px-3 py-2 text-sm font-medium text-default-800 transition-all hover:bg-default-100" href="{{ route('profile.edit') }}">
                   <i class="ti ti-wallet text-base"></i>
-                  Wallet
+                 Profile
                 </a>
                 <a class="flex items-center gap-x-3.5 rounded-md px-3 py-2 text-sm font-medium text-default-800 transition-all hover:bg-default-100" href="home.html" target="_blank">
                   <i class="ti ti-browser text-base"></i>
@@ -180,11 +180,13 @@
                 </a>
     
                 <hr class="-mx-2 my-2 border-default-200" />
-    
-                <a class="flex items-center gap-x-3.5 rounded-md px-3 py-2 text-sm font-medium text-red-500 hover:bg-red-400/10" href="auth-login.html">
-                  <i class="h-4 w-4" data-lucide="log-out"></i>
-                  Log out
-                </a>
+                <form action="{{ route('logout') }}" method="POST">
+                  @csrf
+                  <button type="submit" class="flex items-center gap-x-3.5 rounded-md px-3 py-2 text-sm font-medium text-red-500 hover:bg-red-400/10">
+                      <i class="h-4 w-4" data-lucide="log-out"></i>
+                      Log out
+                  </button>
+              </form>
               </div>
             </div>
           </div>

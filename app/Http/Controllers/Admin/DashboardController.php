@@ -97,7 +97,7 @@ class DashboardController extends Controller
 
         $recentOrders = $this->orderService->getCurrentOrders(['pending', 'processing']);
         $topSellingProducts = $this->productService->topSaleProduct();
-        dd($recentOrders);
+        // dd($recentOrders);
         $topSellingProducts = $this->productService->topSaleProduct();
         return view('admin.dashboard', compact('statistics','topSellingProducts','recentOrders'));
    
