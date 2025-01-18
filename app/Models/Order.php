@@ -15,9 +15,9 @@ class Order extends Model
         'id', 
         'order_date',
         'total_price',
-        'status',
-        'delivery_address',
-        'delivery_slot',
+        'stavery_address',
+        'delivtus',
+        'deliery_slot',
     ];
 
  public $timestamps = false;

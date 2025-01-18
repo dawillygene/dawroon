@@ -180,13 +180,14 @@
                 </a>
     
                 <hr class="-mx-2 my-2 border-default-200" />
-                <form action="{{ route('logout') }}" method="POST">
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                   @csrf
-                  <button type="submit" class="flex items-center gap-x-3.5 rounded-md px-3 py-2 text-sm font-medium text-red-500 hover:bg-red-400/10">
-                      <i class="h-4 w-4" data-lucide="log-out"></i>
-                      Log out
-                  </button>
               </form>
+              
+              <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="flex items-center gap-x-3.5 rounded-md px-3 py-2 text-sm font-medium text-red-500 hover:bg-red-400/10">
+                  <i class="h-4 w-4" data-lucide="log-out"></i>
+                  Log out
+              </a>
               </div>
             </div>
           </div>

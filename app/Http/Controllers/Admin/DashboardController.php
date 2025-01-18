@@ -95,11 +95,31 @@ class DashboardController extends Controller
             // 'topActiveUsers' => $this->userStatisticsService->getTopActiveUsers(5),
         ];
 
-        $recentOrders = $this->orderService->getCurrentOrders(['pending', 'processing']);
         $topSellingProducts = $this->productService->topSaleProduct();
-        // dd($recentOrders);
-        $topSellingProducts = $this->productService->topSaleProduct();
-        return view('admin.dashboard', compact('statistics','topSellingProducts','recentOrders'));
+     
+   $recentOrders = $this->orderService->getCurrentOrders(['pending', 'processing']);
+   $processedOrders = $recentOrders->getCollection()->map(function ($order) {
+       $productName = $order->orderItems->isNotEmpty()
+           ? $order->orderItems->first()->product->name
+           : null;
+
+       return [
+           'order_id' => $order->order_id,
+           'status' => $order->status,
+           'product_name' => $productName,
+           'order_date' => $order->order_date,
+           'total_price' => $order->total_price,
+       ];
+   });
+
+
+
+
+  
+
+
+
+        return view('admin.dashboard', compact('statistics','topSellingProducts','processedOrders'));
    
     }
 }

@@ -19,6 +19,7 @@ class OrderFactory extends Factory
     public function definition(): array
     {
         return [
+            
              'id'=> User::factory(),
              'order_date'=> $this->faker->dateTimeBetween("-1 year","now"),
              'total_price'=> $this->faker->randomFloat(2,100,10000),
