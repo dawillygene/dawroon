@@ -72,6 +72,7 @@ return new class extends Migration
             $table->decimal('price', 8, 2);
             $table->string('image_url')->nullable();
             $table->integer('stock_quantity');
+            $table->string( 'status');
             $table->foreign('producer_id')->references('producer_id')->on('producers');
             $table->foreign('category_id')->references('category_id')->on('categories');
         });

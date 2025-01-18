@@ -81,7 +81,6 @@
                 <div id="ana_device" class="apex-charts py-3.5"></div>
             </x-card.card-body>
 
-
             <div class="border-t border-dashed border-default-200">
                 <div class="ovrflow-x-auto">
                     <div class="min-w-full inline-block align-middle">
@@ -126,12 +125,8 @@
                 </div>
             </div>
         </x-card.card>
+
     </div>
-
-
-
-
-
 
 
 
@@ -140,20 +135,13 @@
     <x-cards.grid-layout type="large">
         @foreach ($topSellingProducts as $topSellingProduct)
             <x-cards.panel style="relative">
-
-
                 <x-cards.product-card productImage="1-2ca96552.png" heading="{{ $topSellingProduct['name'] }}"
                     price="{{ $topSellingProduct['discount_price'] }}" discount="{{ $topSellingProduct['price'] }}"
                     rating="{{ $topSellingProduct['average_rating'] }}">
-
                 </x-cards.product-card>
-
-
             </x-cards.panel>
         @endforeach
     </x-cards.grid-layout>
-
-
 
     <x-table.table-container>
         <x-table.table-header title="Recent Order" :options="['Today', 'Yesterday', 'Last 7 Days', 'Last 30 Days', 'This Month', 'Last Month']" />
@@ -173,17 +161,15 @@
                             </x-slot>
                             <x-slot name="body">
                                 @foreach ($processedOrders as $order )
-
                                 <x-table.table-row>
                                     <x-table.table-cell>#{{ $order['order_id'] ?? 'null'  }}</x-table.table-cell>
                                     <x-table.table-cell>{{ $order['product_name'] ?? 'null'}}</x-table.table-cell>
-                                    <x-table.table-cell>{{  $order['order_date'] ?? 'null' }}</x-table.table-cell>
+                                    <x-table.table-cell>{{ $order['order_date'] ? \Carbon\Carbon::parse($order['order_date'])->format('D, M j, Y') : 'null' }}</x-table.table-cell>
                                     <x-table.table-cell>{{ $order['total_price'] ?? 'null' }}Tsh</x-table.table-cell>
                                     <x-table.table-cell class="text-center">
-                                        <x-table.status-badge color="pending">{{ $order['status'] ?? 'null' }}</x-status-badge>
+                                    <x-table.status-badge color="{{ $order['status'] ?? 'null' }}">{{ $order['status'] ?? 'null' }}</x-status-badge>
                                     </x-table.table-cell>
-                                </x-table.table-row>    
-
+                                </x-table.table-row>
                                 @endforeach  
                             </x-slot>
                         </x-table.table>

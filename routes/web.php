@@ -4,12 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\OrderController;
-
-
-
-
-
-
+use App\Http\Controllers\ProductController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -54,6 +49,16 @@ Route::prefix('orders')->group(function () {
     Route::get('/user/{userId}', [OrderController::class, 'getUserOrders']); // Get orders for a specific user
 });
 
+
+
+Route::prefix('products')->group(function () {
+    Route::get('/', [ProductController::class, 'list']); // Get all orders
+    // Route::get('/{orderId}', [OrderController::class, 'show']); // Get a specific order
+    // Route::post('/', [OrderController::class, 'store']); // Create a new order
+    // Route::put('/{orderId}', [OrderController::class, 'update']); // Update an order
+    // Route::delete('/{orderId}', [OrderController::class, 'destroy']); // Delete an order
+    // Route::get('/user/{userId}', [OrderController::class, 'getUserOrders']); // Get orders for a specific user
+});
 
 
 

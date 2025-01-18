@@ -1,16 +1,50 @@
 <?php
 
 namespace App\Services;
+use App\Models\Product;
 use App\Models\OrderItem;
 use App\Models\ProductReview;
 use Illuminate\Support\Carbon;
 use App\Models\ProducerPromotion;
+use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 /**
  * Class ProductService.
  */
 class ProductService
 {
     
+
+
+
+
+    public function getPaginatedProducts(int $perPage = 13): LengthAwarePaginator
+    {
+        // Fetch products with their related producer and category
+        $products = Product::with(['producer', 'category'])
+            ->paginate($perPage);
+
+        return $products;
+    }
+
+    public function formatProductForTable(Product $product): array
+    {
+        return [
+            'product_id' => $product->product_id,
+            'name' => $product->name,
+            'category' => $product->category->name ?? 'N/A',
+            'price' =>number_format($product->price, 2) . ' Tsh',
+            'stock_quantity' => $product->stock_quantity,
+            'producer' => $product->producer->name ?? 'N/A', // Fallback if producer is not set
+            'status' => $product->status ?? 'N/A', // Static status for now
+            'image_url' => $product->image_url ?? 'default-product-image.png', // Fallback if image is not set
+        ];
+    }
+
+
+
+
+
+
     public function topSaleProduct()
     {
         $topProducts = OrderItem::select('order_items.product_id', 'order_items.quantity')
@@ -78,8 +112,6 @@ class ProductService
 
 return null;
 }
-
-
 
 
 
