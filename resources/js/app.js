@@ -16,6 +16,7 @@ import './ui-advance-swiper-a611e9bc';
 import './ui-advance-tour-73f96522';
 
 // Import Other Scripts
+import './form-utils';
 import './apexcharts.common-4fae8482';
 import './auth-23747e5d';
 import './colors-4fe812b9';
@@ -42,6 +43,8 @@ import './ui-form-upload-6973fd21';
 import './ui-form-validation-c08ec1f4';
 import './ui-maps-vector-ab96bff2';
 import './ui-table-datatable-16fb38fc';
+
+
 
 
 
