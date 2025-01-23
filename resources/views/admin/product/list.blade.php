@@ -13,7 +13,6 @@
                 </div>
             </div>
         </x-cards.panel>
-
         <x-cards.panel class=" bg-white dark:bg-default-50 h-fit">
           <div class="flex items-center justify-between">
               <div>
@@ -37,7 +36,6 @@
             </div>
         </div>
     </x-cards.panel>
-
     <x-cards.panel class=" bg-white dark:bg-default-50 h-fit">
       <div class="flex items-center justify-between">
           <div>
